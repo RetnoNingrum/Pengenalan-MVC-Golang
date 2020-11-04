@@ -1,4 +1,4 @@
-module pengenalan-mvc
+module github.com/RetnoNingrum/Pengenalan-MVC-Golang
 
 go 1.15
 

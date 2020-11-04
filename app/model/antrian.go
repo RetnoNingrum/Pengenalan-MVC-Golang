@@ -12,8 +12,8 @@ type Antrian struct {
 	Status bool `json:"status"`
 }
 
-func addAtrian() (bool,error){
-	_, _, dataAntrian := getAntrian()
+func AddAntrian() (bool,error){
+	_, _, dataAntrian := GetAntrian()
 	var Id string
 	var antrianRef *db.Ref
 	ref := client.NewRef("antrian")
@@ -37,7 +37,7 @@ func addAtrian() (bool,error){
 	return true,nil
 }
 
-func  getAntrian() (bool,error,[]map[string]interface{}) {
+func  GetAntrian() (bool,error,[]map[string]interface{}) {
 	var data []map[string]interface{}
 	ref := client.NewRef("antrian")
 	if err := ref.Get(ctx, &data); err != nil {
@@ -47,7 +47,7 @@ func  getAntrian() (bool,error,[]map[string]interface{}) {
 	return true,nil,data
 }
 
-func updateAntrian(idAntrian string) error{
+func UpdateAntrian(idAntrian string) error{
 	ref := client.NewRef("antrian")
 	id := strings.Split(idAntrian, "-")
 	childRef := ref.Child(id[1])
@@ -62,7 +62,7 @@ func updateAntrian(idAntrian string) error{
 	return nil
 }
 
-func deleteAntrian (idAntrian string) error {
+func DeleteAntrian (idAntrian string) error {
 	ref := client.NewRef("antrian")
 	id := strings.Split(idAntrian, "-")
 	childRef := ref.Child(id[1])

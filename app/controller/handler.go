@@ -7,7 +7,7 @@ import (
 )
 
 func AddAntrianHandler(c *gin.Context){
-	flag, err := model.addAtrian()
+	flag, err := model.AddAntrian()
 	if err != nil{
 		c.JSON(http.StatusInternalServerError,map[string]interface{}{
 			"status":"failed",
@@ -27,7 +27,7 @@ func AddAntrianHandler(c *gin.Context){
 }
 
 func GetAntrianHandler(c *gin.Context){
-	flag,err,resp := model.getAntrian()
+	flag,err,resp := model.GetAntrian()
 	if err != nil{
 		c.JSON(http.StatusInternalServerError,map[string]interface{}{
 			"status":"failed",
@@ -50,7 +50,7 @@ func GetAntrianHandler(c *gin.Context){
 
 func UpdateAntrianHandler(c *gin.Context){
 	idAntrian := c.Param("idAntrian")
-	err := model.updateAntrian(idAntrian)
+	err := model.UpdateAntrian(idAntrian)
 	if err != nil{
 		c.JSON(http.StatusInternalServerError,map[string]interface{}{
 			"status":"failed",
@@ -65,7 +65,7 @@ func UpdateAntrianHandler(c *gin.Context){
 
 func DeleteAntrianHandler(c *gin.Context){
 	idAntrian := c.Param("idAntrian")
-	err := model.deleteAntrian(idAntrian)
+	err := model.DeleteAntrian(idAntrian)
 	if err != nil{
 		c.JSON(http.StatusInternalServerError,map[string]interface{}{
 			"status":"failed",
@@ -79,7 +79,7 @@ func DeleteAntrianHandler(c *gin.Context){
 }
 
 func PageAntrianHandler(c *gin.Context) {
-	flag, err, result := model.getAntrian()
+	flag, err, result := model.GetAntrian()
 	var currentAntrian map[string]interface{}
 
 	for _, item := range result {
